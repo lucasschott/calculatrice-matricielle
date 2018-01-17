@@ -1,0 +1,74 @@
+Le but de ce projet est de réaliser une mini-bibliothèque de calculs sur les matrices en langage C,
+    ainsi qu'un programme permettant de créer des matrices et d'utiliser toutes les fonctions de 
+    la bibliothèque sur ces matrices. Ce projet a été réalisé seul.\\
+    Les fonctions réalisées sont:
+    \begin{itemize}
+        \item le calcul de la transposée d'une matrice.
+        \item la somme de deux matrices.
+        \item la multiplications de deux matrices.
+        \item le calcul du déterminant d'une matrice carré:
+            \begin{itemize}
+                \item[-] en utilisant un algorithme récursif.
+                \item[-] par une mèthode optimisée si la matrice est triangulaire.
+            \end{itemize}
+        \item le calcul de l'inverse d'une matrice:
+            \begin{itemize}
+                \item[-] par la comatrice.
+                \item[-] par le pivot de Gauss.
+            \end{itemize}
+        \item la résolution d'un système d'équations linéaire par pivot de Gauss.
+        \item la décomposition PLU.\@
+        \item le calcul des valeurs propres d'une matrice carré 2*2.
+    \end{itemize}
+
+
+    \section*{Utilisation}
+
+
+    Pour compiler le code source il suffit de lancer \emph{make} dans le répertoire racine du projet,
+    l'éxecutable se trouve dans le répertoire \emph{bin/} du répertoire du projet.
+    
+    Pour utiliser le programme, une fois le programme lancé il suffit de suivre les instructions affichés.
+    Un menu sera affiché avec les différentes opérations réalisables, il suffira de marquer le numéro de 
+    l'opération à effectuer puis d'appuier sur \emph{entrée}. Le programme demandera ensuite d'entrer
+    la/les matrice(s) necessaire(s) pour effectuer l'opération sélectionnée.
+
+    Pour créer une matrice, le programme demande en premier le nombre de lignes de la matrice, puis le
+    nombre de colonnes. Une fois ces informations données, il demandera la valeur de chaque élément de la
+    matrice un par un, en commençant en haut à gauche de la matrice et en allant vers la droite, puis
+    vers le bas.
+
+    Si une saisie est incorrecte le programme renvera l'utilisateur au menu principal.
+
+
+    \section*{Implémentation}
+
+
+    Le programme a été réalisé en langage C, il est composé de trois fichiers \say{.c} et de deux fichiers
+    \say{.h}: matrice.c et matrice.h définissent les structures de données et les fonctions sur les matrices,
+    io.c et io.h contiennent les fonctions d'entrée et de sortie (menus, affichage des matrices, \ldots), et
+    main.c contient l'interface utilisateur.\\ 
+
+    \subsection*{Structure de donnée}
+
+    une structure \emph{Matrix} qui contient:
+    \begin{itemize}
+        \item un tableau de double \emph{mat} qui contient les elements de la matrice
+        \item une entier \emph{nb\_rows} qui représente le nombre de lignes de la matrice.
+        \item un entier \emph{nb\_columns} qui représente le nombre de colonnes de la matrice.
+        \item un booléen \emph{valide} qui vaut \say{true} si la matrice est valide, il peut valoir
+            \say{false} si la matrice est le résultat d'un calcul qui n'a pas pu aboutir, comme
+            l'inverse d'une matrice de déterminant nul par exemple.
+    \end{itemize}
+
+
+
+    \section*{Conclusion}
+
+    Ce projet a été très long mais aussi très interressant à réaliser. Les premières fonctions ont été
+    faites assez rapidement, mais certaines comme l'inversion de la matrice par pivot de Gauss ou la résolution
+    de systèmes linéaires m'ont pris pas mal de temps. L'interface utilisateur a aussi été très longue à
+    réaliser. J'ai encore voulu, à la fin,  implémenter un système de variables pour sauvegarder des matrices
+    et pouvoir les utiliser dans n'importe quelle fonction sans devoir la re-saisire, mais par manque de temps
+    de je n'ai pu implementer celà. J'ai effectué de nombreux testes sur mon programme, et à part quelques
+    fuites mémoire que je n'ai pas eu le temps de résoudre, il est fonctionnel.
