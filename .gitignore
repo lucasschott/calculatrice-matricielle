@@ -1,0 +1,11 @@
+/ass
+*.swp
+/bin/main
+/.classpath
+/.project
+/.idea/
+*.iml
+*.aux
+*.log
+*.pdf
+*.png
